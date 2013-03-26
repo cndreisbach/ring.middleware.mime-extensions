@@ -8,7 +8,7 @@ of the URL extension.
 In your `project.clj`, add the following dependency:
 
 ```clj
-[ring.middleware.mime-extensions "0.1.0"]
+[ring.middleware.mime-extensions "0.2.0"]
 ```
 
 Then add the middleware to your stack. You can leave out the mime-type
