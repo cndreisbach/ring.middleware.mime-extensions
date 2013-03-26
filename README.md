@@ -29,9 +29,8 @@ With a Compojure app, your setup can be as simple as:
       wrap-convert-extension-to-accept-header))
 ```
 
-This will not only set the "accept" header in your request. It will
-also change the `:uri` to be the URI without the extension and set the
-new key-value pairs `:extension` and `:original-uri` in your request.
+This will only set the "accept" header in your request. It will not
+alter the `:uri`, so you must match the extension in your routes.
 
 ## Customizing
 

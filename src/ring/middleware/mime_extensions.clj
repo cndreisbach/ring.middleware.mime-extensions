@@ -1,8 +1,7 @@
 (ns ring.middleware.mime-extensions
   (:require [clojure.java.io :as io]
             [clojurewerkz.urly.core :as url :refer [url-like]])
-  (:import (java.net URL)
-           (javax.activation MimetypesFileTypeMap)))
+  (:import (javax.activation MimetypesFileTypeMap)))
 
 (defn mime-map
   ([] (MimetypesFileTypeMap.))
@@ -24,12 +23,9 @@
              ext-index (.lastIndexOf filename ".")]
          (if (> ext-index -1)
            (let [mime-type (convert-filename-to-mime-type mime-map filename)
-                 new-uri (str (.mutatePath url (.substring filename 0 ext-index)))
                  extension (.substring uri (inc ext-index))]
              (-> request
                  (assoc-in [:headers "accept"] mime-type)
-                 (assoc :original-uri uri)
-                 (assoc :uri new-uri)
                  (assoc :extension extension)
                  handler))
            (handler request))))))

@@ -23,24 +23,18 @@
         request {:uri "http://localhost/rufus.xml"
                  :headers {}}
         req-after (middleware request)]
-    (is (= "application/xml" (get-in req-after [:headers "accept"])))
-    (is (= "http://localhost/rufus" (:uri req-after)))
-    (is (= "http://localhost/rufus.xml" (:original-uri req-after)))))
+    (is (= "application/xml" (get-in req-after [:headers "accept"])))))
 
 (deftest middleware-leaves-url-with-no-ext-alone
   (let [middleware (wrap-convert-extension-to-accept-header identity)
         request {:uri "http://localhost/rufus"
                  :headers {}}
         req-after (middleware request)]
-    (is (= nil (get-in req-after [:headers "accept"])))
-    (is (= "http://localhost/rufus" (:uri req-after)))
-    (is (= nil (:original-uri req-after)))))
+    (is (= nil (get-in req-after [:headers "accept"])))))
 
 (deftest middleware-leaves-url-with-no-path-alone
   (let [middleware (wrap-convert-extension-to-accept-header identity)
         request {:uri "http://localhost/"
                  :headers {}}
         req-after (middleware request)]
-    (is (= nil (get-in req-after [:headers "accept"])))
-    (is (= "http://localhost/" (:uri req-after)))
-    (is (= nil (:original-uri req-after)))))
+    (is (= nil (get-in req-after [:headers "accept"])))))
