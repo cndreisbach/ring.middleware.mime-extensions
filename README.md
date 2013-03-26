@@ -13,7 +13,7 @@ In your `project.clj`, add the following dependency:
 
 Then add the middleware to your stack. You can leave out the mime-type
 map (an instance of
-`[javax.activation.MimetypesFileTypeMap][MimetypesFileTypeMap]`) and a
+[`javax.activation.MimetypesFileTypeMap`][MimetypesFileTypeMap]) and a
 default one will be used.
 
 With a Compojure app, your setup can be as simple as:
@@ -35,7 +35,7 @@ new key-value pairs `:extension` and `:original-uri` in your request.
 
 ## Customizing
 
-To use a different `[MimetypesFileTypeMap][]`, pass it as an argument
+To use a different [`MimetypesFileTypeMap`][MimetypesFileTypeMap], pass it as an argument
 to `wrap-convert-extension-to-accept-header`. There is a convenience
 method, `mime-map`, to create a new one, which can take a string
 representing the filename of your `mime.types` file or an
