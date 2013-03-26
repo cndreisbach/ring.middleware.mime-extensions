@@ -1,4 +1,4 @@
-(defproject ring.middleware.mime-extensions "0.1.0"
+(defproject ring.middleware.mime-extensions "0.1.1-SNAPSHOT"
   :description "Ring middleware to add an Accept header to every web request based off
 of the URL extension."
   :url "https://github.com/cndreisbach/ring.middleware.mime-extensions"

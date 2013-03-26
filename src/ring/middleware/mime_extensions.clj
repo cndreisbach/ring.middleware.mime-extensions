@@ -9,7 +9,7 @@
   ([filename] (MimetypesFileTypeMap. filename)))
 
 (defn default-mime-map []
-  (mime-map (.getPath (io/resource "mime.types"))))
+  (mime-map (io/input-stream (io/resource "mime.types"))))
 
 (defn convert-filename-to-mime-type
   [mime-map filename]
